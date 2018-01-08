@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D668B5B92004182C001A29FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D668B5B82004182C001A29FE /* Logger.swift */; };
+		D668B5BB200418C6001A29FE /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D668B5BA200418C6001A29FE /* BeaconManager.swift */; };
 		D6D4912C2003CB4F001A01D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4912B2003CB4F001A01D1 /* AppDelegate.swift */; };
 		D6D4912E2003CB4F001A01D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4912D2003CB4F001A01D1 /* ViewController.swift */; };
 		D6D491312003CB4F001A01D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D4912F2003CB4F001A01D1 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D668B5B82004182C001A29FE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D668B5BA200418C6001A29FE /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		D6D491282003CB4F001A01D1 /* Pingee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D4912B2003CB4F001A01D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D4912D2003CB4F001A01D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		D6D4912A2003CB4F001A01D1 /* Pingee */ = {
 			isa = PBXGroup;
 			children = (
+				D668B5B82004182C001A29FE /* Logger.swift */,
+				D668B5BA200418C6001A29FE /* BeaconManager.swift */,
 				D6D4912B2003CB4F001A01D1 /* AppDelegate.swift */,
 				D6D4912D2003CB4F001A01D1 /* ViewController.swift */,
 				D6D4912F2003CB4F001A01D1 /* Main.storyboard */,
@@ -137,6 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6D4912E2003CB4F001A01D1 /* ViewController.swift in Sources */,
+				D668B5BB200418C6001A29FE /* BeaconManager.swift in Sources */,
+				D668B5B92004182C001A29FE /* Logger.swift in Sources */,
 				D6D4912C2003CB4F001A01D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
