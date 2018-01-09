@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
+    private var bluetoothManager: BluetoothManager!
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -20,8 +22,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        log(.vc, "viewDidLoad")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.appendMessage(_:)), name: NSNotification.Name(rawValue: newMessageNotification), object: nil)
+        log(.vc, "viewDidLoad")
+        bluetoothManager = BluetoothManager()
     }
 
     override func didReceiveMemoryWarning() {
