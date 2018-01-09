@@ -14,13 +14,20 @@ enum Component: String {
     case app, vc, beac, btle
 }
 
-func timestamp() -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss.SSS"
-    return dateFormatter.string(from: Date())
+var dateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "HH:mm:ss.SSS"
+    return df
+}()
+
+func log(_ message: String) {
+    let timestamp = dateFormatter.string(from: Date())
+    let text = "[\(timestamp)] \(message)"
+    print(text)
 }
 
 func log(_ component: Component, _ message: String) {
-    print("[\(timestamp())] \(component.rawValue.uppercased().padding(toLength: 4, withPad: " ", startingAt: 0)) \(message)")
+    let timestamp = dateFormatter.string(from: Date())
+    print("[\(timestamp)] \(component.rawValue.uppercased().padding(toLength: 4, withPad: " ", startingAt: 0)) \(message)")
     NotificationCenter.default.post(name: Notification.Name(rawValue: newMessageNotification), object: nil, userInfo: ["message": message])
 }
