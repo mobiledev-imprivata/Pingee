@@ -96,7 +96,7 @@ extension AppDelegate: BeaconManagerDelegate {
     
     func showNotification(_ message: String) {
         let content = UNMutableNotificationContent()
-        content.title = "Beacon Receiver"
+        content.title = "Pingee"
         content.body = message
         content.sound = UNNotificationSound.default()
         
