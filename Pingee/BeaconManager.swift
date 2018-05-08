@@ -43,7 +43,7 @@ final class BeaconManager: NSObject {
             return
         }
         
-        log(.beac, "authorizationStatus \(CLLocationManager.authorizationStatus().toString())")
+        log(.beac, "authorizationStatus \(CLLocationManager.authorizationStatus())")
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -81,7 +81,7 @@ final class BeaconManager: NSObject {
 extension BeaconManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        log(.beac, "locationManager didChangeAuthorizationStatus \(status.toString())")
+        log(.beac, "locationManager didChangeAuthorizationStatus \(status)")
         
         guard CLLocationManager.authorizationStatus()  == .authorizedAlways else {
             log(.beac, "status is not authorizedAlways")
@@ -114,7 +114,7 @@ extension BeaconManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        log(.beac, "locationManager didDetermineState \(state.toString())")
+        log(.beac, "locationManager didDetermineState \(state)")
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
@@ -123,7 +123,7 @@ extension BeaconManager: CLLocationManagerDelegate {
             log(.beac, "no beacons found")
             return
         }
-        log(.beac, "proximity \(beacons[0].proximity.toString())")
+        log(.beac, "proximity \(beacons[0].proximity)")
     }
     
     // failures
@@ -138,9 +138,9 @@ extension BeaconManager: CLLocationManagerDelegate {
     
 }
 
-extension CLAuthorizationStatus {
-    
-    fileprivate func toString() -> String {
+extension CLAuthorizationStatus: CustomStringConvertible {
+
+    public var description: String {
         switch self {
         case .notDetermined: return "notDetermined"
         case .restricted: return "restricted"
@@ -152,9 +152,9 @@ extension CLAuthorizationStatus {
     
 }
 
-extension CLRegionState {
+extension CLRegionState: CustomStringConvertible {
     
-    fileprivate func toString() -> String {
+    public var description: String {
         switch self {
         case .unknown: return "unknown"
         case .inside: return "inside"
@@ -164,9 +164,9 @@ extension CLRegionState {
     
 }
 
-extension CLProximity {
+extension CLProximity: CustomStringConvertible {
     
-    fileprivate func toString() -> String {
+    public var description: String {
         switch self {
         case .unknown: return "unknown"
         case .immediate: return "immediate"
