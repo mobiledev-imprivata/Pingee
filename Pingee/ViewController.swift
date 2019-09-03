@@ -23,6 +23,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.appendMessage(_:)), name: NSNotification.Name(rawValue: newMessageNotification), object: nil)
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.isCoreLocationEventLaunch {
+            log(.app, "app launched in response to a CoreLocation event")
+            appDelegate.showNotification("app launched in response to a CoreLocation event")
+        }
+        
         log(.vc, "viewDidLoad")
         bluetoothManager = BluetoothManager()
     }

@@ -16,12 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var beaconManager: BeaconManager!
     
+    var isCoreLocationEventLaunch = false
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         log(.app, "application didFinishLaunchingWithOptions")
         
         if let launchOptions = launchOptions, launchOptions[UIApplicationLaunchOptionsKey.location] != nil {
-            log(.app, "app launched in response to a CoreLocation event")
-            showNotification("app launched in response to a CoreLocation event")
+            isCoreLocationEventLaunch = true
         }
         
         // Override point for customization after application launch.
